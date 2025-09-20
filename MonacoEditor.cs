@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
-using MauiMonaco.Models;
+using Flynk.Apps.Maui.Monaco.Models;
 
-namespace MauiMonaco
+namespace Flynk.Apps.Maui.Monaco
 {
     /// <summary>
     /// Comprehensive Monaco Editor wrapper with full API support
@@ -386,15 +386,16 @@ namespace MauiMonaco
         {
             if (!_isInitialized) return false;
 
-            var json = JsonSerializer.Serialize(new { source, edits });
-            var result = await _webView.EvaluateJavaScriptAsync($"window.editor ? window.editor.executeEdits({json.source}, {json.edits}) : false");
+            var sourceJson = JsonSerializer.Serialize(source);
+            var editsJson = JsonSerializer.Serialize(edits);
+            var result = await _webView.EvaluateJavaScriptAsync($"window.editor ? window.editor.executeEdits({sourceJson}, {editsJson}) : false");
             return result?.ToString() == "true";
         }
 
         /// <summary>
         /// Get the value in a range
         /// </summary>
-        public async Task<string> GetValueInRange(Range range)
+        public async Task<string> GetValueInRange(Models.Range range)
         {
             if (!_isInitialized) return null;
 
@@ -440,12 +441,13 @@ namespace MauiMonaco
         {
             if (!_isInitialized) return new List<string>();
 
-            var json = JsonSerializer.Serialize(new { oldDecorationIds, newDecorations });
+            var oldIdsJson = JsonSerializer.Serialize(oldDecorationIds);
+            var newDecorationsJson = JsonSerializer.Serialize(newDecorations);
             var result = await _webView.EvaluateJavaScriptAsync($@"
                 window.editor ? JSON.stringify(
                     window.editor.deltaDecorations(
-                        {json.oldDecorationIds},
-                        {json.newDecorations}
+                        {oldIdsJson},
+                        {newDecorationsJson}
                     )
                 ) : '[]'
             ");
@@ -474,7 +476,7 @@ namespace MauiMonaco
         /// <summary>
         /// Get decorations in a range
         /// </summary>
-        public async Task<List<ModelDecoration>> GetDecorationsInRange(Range range)
+        public async Task<List<ModelDecoration>> GetDecorationsInRange(Models.Range range)
         {
             if (!_isInitialized) return null;
 
@@ -672,7 +674,7 @@ namespace MauiMonaco
         /// <summary>
         /// Reveal range
         /// </summary>
-        public async Task RevealRange(Range range, string scrollType = "smooth")
+        public async Task RevealRange(Models.Range range, string scrollType = "smooth")
         {
             if (!_isInitialized) return;
 

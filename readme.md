@@ -323,7 +323,7 @@ Contributions are welcome! Please:
 
 ```bash
 # 1. Clone
-git clone https://github.com/<you>/<repo>.git
+git clone https://github.com/flynk/maui-monaco.git
 cd <repo>
 
 # 2. Restore & build
@@ -346,12 +346,13 @@ dotnet build -t:Run -f net8.0-android   # or: net8.0-windows10.0.19041.0, net8.0
 
 ## License
 
-MIT © You — see [LICENSE](LICENSE).
+MIT © Flynk — see [LICENSE](LICENSE).
 
 ## Acknowledgements
 
 * [Monaco Editor](https://github.com/microsoft/monaco-editor) (Microsoft)
 * The .NET MAUI team
+* [Flynk](https://flynk.com)
 * Community contributors 🙌
 
 ---

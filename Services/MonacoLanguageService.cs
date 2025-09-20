@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
-using MauiMonaco.Models;
+using Flynk.Apps.Maui.Monaco.Models;
 
-namespace MauiMonaco.Services
+namespace Flynk.Apps.Maui.Monaco.Services
 {
     /// <summary>
     /// Service for managing Monaco language features, intellisense, and custom language definitions
@@ -627,7 +628,7 @@ namespace MauiMonaco.Services
         public List<MarkdownString> Contents { get; set; }
 
         [JsonPropertyName("range")]
-        public Range Range { get; set; }
+        public Models.Range Range { get; set; }
     }
 
     public class MarkdownString

@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Layouts;
 
-namespace MauiMonaco
+namespace Flynk.Apps.Maui.Monaco
 {
     public class MonacoEditorView : Grid
     {
-        private WebView _webView;
+        protected WebView _webView;
         private ActivityIndicator _loadingIndicator;
         private Label _loadingLabel;
         private Grid _loadingOverlay;
@@ -71,7 +71,7 @@ namespace MauiMonaco
 
         public event EventHandler<string> CodeChanged;
 
-        private bool _isInitialized = false;
+        protected bool _isInitialized = false;
 
         public MonacoEditorView()
         {
@@ -208,7 +208,7 @@ namespace MauiMonaco
             }
         }
 
-        private async Task InitializeEditor()
+        protected virtual async Task InitializeEditor()
         {
             // Use idempotent setters for initial configuration
             await _webView.EvaluateJavaScriptAsync($"window.setEditorTheme('{Theme}')");

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace MauiMonaco.Models
+namespace Flynk.Apps.Maui.Monaco.Models
 {
     /// <summary>
     /// A position in the editor. This interface is suitable for serialization.

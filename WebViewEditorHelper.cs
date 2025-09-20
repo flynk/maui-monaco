@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Layouts;
 
-namespace MauiMonaco
+namespace Flynk.Apps.Maui.Monaco
 {
     /// <summary>
     /// Helper to create loading overlay for WebView-based editors

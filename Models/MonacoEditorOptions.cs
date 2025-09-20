@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace MauiMonaco.Models
+namespace Flynk.Apps.Maui.Monaco.Models
 {
     /// <summary>
     /// Comprehensive Monaco Editor construction options matching the full Monaco API

@@ -1,11 +1,12 @@
 using System;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Layouts;
-using MauiMonaco.Models;
+using Flynk.Apps.Maui.Monaco.Models;
 
-namespace MauiMonaco
+namespace Flynk.Apps.Maui.Monaco
 {
     /// <summary>
     /// Monaco Diff Editor for comparing two files or text content
