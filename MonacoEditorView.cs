@@ -4,9 +4,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Layouts;
-using Engyn.Commander.Helpers;
 
-namespace Engyn.Commander.Components
+namespace MauiMonaco
 {
     public class MonacoEditorView : Grid
     {

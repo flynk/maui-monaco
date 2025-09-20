@@ -1,12 +1,13 @@
-# MAUI Monaco Editor Wrapper
+# MauiMonaco - Fully Featured Monaco Editor for .NET MAUI
 
-> A lightweight, production‑ready wrapper for [Monaco Editor](https://microsoft.github.io/monaco-editor/) in .NET MAUI.
+> A comprehensive, production-ready Monaco Editor wrapper for .NET MAUI applications with full API support, matching and exceeding the capabilities of BlazorMonaco.
 
 <p align="center">
-  <a href="#getting-started"><img alt="NuGet" src="https://img.shields.io/badge/NuGet-coming_soon-blue"></a>
-  <img alt="Platforms" src="https://img.shields.io/badge/Platforms-Android%20%7C%20iOS%20%7C%20macOS%20Catalyst%20%7C%20Windows-6f42c1">
+  <a href="#getting-started"><img alt="NuGet" src="https://img.shields.io/badge/NuGet-v1.0.0-blue"></a>
+  <img alt="Platforms" src="https://img.shields.io/badge/Platforms-Android%20%7C%20iOS%20%7C%20macOS%20%7C%20Windows-6f42c1">
   <img alt="License" src="https://img.shields.io/badge/License-MIT-green">
   <img alt=".NET" src="https://img.shields.io/badge/.NET-8%20%7C%209-512BD4">
+  <img alt="Monaco" src="https://img.shields.io/badge/Monaco-v0.44.0-orange">
 </p>
 
 ## TL;DR
@@ -14,16 +15,20 @@
 ```xml
 <!-- XAML -->
 <monaco:MonacoEditor x:Name="Editor"
+                     Code="// Hello Monaco from MAUI"
                      Language="csharp"
-                     Theme="vsdark"
-                     Text="// Hello Monaco from MAUI" />
+                     Theme="vs-dark" />
 ```
 
 ```csharp
-// C#
-Editor.SetValue("Console.WriteLine(\"Hi from MAUI\");");
-var code = await Editor.GetValueAsync();
-await Editor.LayoutAsync();
+// C# - Full API Access
+await Editor.SetValue("Console.WriteLine(\"Hi from MAUI\");");
+var code = await Editor.GetValue();
+
+// Advanced features
+await Editor.SetModelMarkers("myapp", markers);
+await Editor.DeltaDecorations(oldIds, decorations);
+await Editor.AddCommand(KeyMod.CtrlCmd | KeyCode.KEY_S, SaveFile);
 ```
 
 ---
